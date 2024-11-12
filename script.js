@@ -21,20 +21,40 @@ btnRestart.onclick = () => {
 };
 
 function nextQuestion(e) {
-   if (e.target.getAttribute("data-correct") === "true") {
+   const isCorrect = e.target.getAttribute("data-correct") === "true";
+
+   // Adiciona a animação de acerto ou erro
+   if (isCorrect) {
+      e.target.classList.add("correct");
       questionsCorrect++;
+   } else {
+      e.target.classList.add("incorrect");
+
+      // Mostra a resposta correta
+      const correctAnswer = Array.from(
+         document.querySelectorAll(".answer")
+      ).find((answer) => answer.getAttribute("data-correct") === "true");
+      correctAnswer.classList.add("correct-visible"); // Destaque na resposta certa
    }
 
-   if (currentIndex < questions.length - 1) {
-      currentIndex++;
-      loadQuestion();
-   } else {
-      finish();
-   }
+   // Desabilitar todos os botões de resposta após clicar
+   document.querySelectorAll(".answer").forEach((button) => {
+      button.disabled = true;
+   });
+
+   // Esperar um tempo antes de carregar a próxima pergunta ou terminar
+   setTimeout(() => {
+      if (currentIndex < questions.length - 1) {
+         currentIndex++;
+         loadQuestion();
+      } else {
+         finish();
+      }
+   }, 1000); // Tempo de espera antes de ir para a próxima pergunta ou finalizar
 }
 
 function finish() {
-   textFinish.innerHTML = `você acertou ${questionsCorrect} de ${questions.length}`;
+   textFinish.innerHTML = `Você acertou ${questionsCorrect} de ${questions.length}`;
    content.style.display = "none";
    contentFinish.style.display = "flex";
 }
@@ -49,15 +69,18 @@ function loadQuestion() {
       const div = document.createElement("div");
 
       div.innerHTML = `
-    <button class="answer" data-correct="${answer.correct}">
-      ${answer.option}
-    </button>
-    `;
+         <button class="answer" data-correct="${answer.correct}">
+            ${answer.option}
+         </button>
+      `;
 
       answers.appendChild(div);
    });
 
+   // Habilitar os botões e remover qualquer classe de animação ou destaque antigo
    document.querySelectorAll(".answer").forEach((item) => {
+      item.disabled = false; // Reabilita os botões
+      item.classList.remove("correct", "incorrect", "correct-visible"); // Remove qualquer animação anterior
       item.addEventListener("click", nextQuestion);
    });
 }

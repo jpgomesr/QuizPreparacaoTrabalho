@@ -147,3 +147,47 @@ button:active {
       font-size: 1.3rem;
    }
 }
+
+/* Animações */
+@keyframes correctAnimation {
+   0% {
+      background-color: #28a745; /* Verde claro para acerto */
+      transform: scale(1);
+   }
+   50% {
+      background-color: #2ecc71; /* Verde mais forte */
+      transform: scale(1.1);
+   }
+   100% {
+      background-color: #28a745; /* Volta ao verde claro */
+      transform: scale(1);
+   }
+}
+
+@keyframes incorrectAnimation {
+   0% {
+      background-color: #e74c3c; /* Vermelho claro para erro */
+      transform: scale(1);
+   }
+   50% {
+      background-color: #c0392b; /* Vermelho mais forte */
+      transform: scale(1.1);
+   }
+   100% {
+      background-color: #e74c3c; /* Volta ao vermelho claro */
+      transform: scale(1);
+   }
+}
+
+/* Estilos para os botões com animação */
+button.correct {
+   animation: correctAnimation 0.5s ease-in-out;
+}
+
+button.incorrect {
+   animation: incorrectAnimation 0.5s ease-in-out;
+}
+
+button.correct-visible {
+   background-color: #28a745 !important; /* Verde claro para a resposta correta */
+}
