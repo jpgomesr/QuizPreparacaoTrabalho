@@ -13,8 +13,8 @@ body {
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   background: linear-gradient(90deg, #1e9f9b, #27b693);
-   color: #fff;
+   background: #f4f4f9; /* Fundo suave e neutro */
+   color: #333; /* Texto escuro para melhor leitura */
    padding: 0 20px;
 }
 
@@ -23,26 +23,26 @@ h2 {
    font-weight: 600;
    text-align: center;
    margin-bottom: 20px;
-   color: #fff;
+   color: #2c3e50; /* Cor mais suave para o título */
 }
 
 main {
-   background-color: rgba(255, 255, 255, 0.8);
-   padding: 40px;
+   background-color: #ffffff; /* Fundo branco para contraste */
+   padding: 30px;
    border-radius: 15px;
    width: 100%;
-   max-width: 600px;
-   min-height: 350px;
-   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+   max-width: 550px; /* Limita o tamanho da largura */
+   min-height: 400px; /* Altura consistente */
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
 .title {
    font-size: 1.75rem;
    text-align: center;
-   color: #333;
+   color: #2c3e50;
    margin-bottom: 15px;
 }
 
@@ -55,20 +55,20 @@ main {
 .spnQtd {
    font-size: 1rem;
    text-align: end;
-   color: #333;
+   color: #7f8c8d; /* Cor suave para a contagem de perguntas */
 }
 
 .question {
-   font-size: 1.5rem;
+   font-size: 1.4rem;
    font-weight: 500;
    text-align: center;
-   color: #333;
+   color: #34495e; /* Cor suave para as perguntas */
 }
 
 .answers {
    display: flex;
    flex-direction: column;
-   gap: 15px;
+   gap: 12px;
 }
 
 button {
@@ -78,14 +78,14 @@ button {
    border: none;
    border-radius: 8px;
    cursor: pointer;
-   background-color: #008ccc;
+   background-color: #3498db; /* Azul mais calmo e agradável */
    color: white;
    transition: background-color 0.3s, transform 0.2s;
    text-align: center;
 }
 
 button:hover {
-   background-color: #007bb2;
+   background-color: #2980b9; /* Cor mais escura no hover */
    transform: translateY(-3px);
 }
 
@@ -103,13 +103,13 @@ button:active {
 
 .finish span {
    font-size: 1.5rem;
-   color: #333;
+   color: #34495e; /* Cor suave para o texto final */
 }
 
 .finish button {
    padding: 12px 30px;
    font-size: 1.2rem;
-   background-color: #008ccc;
+   background-color: #3498db;
    color: white;
    border: none;
    border-radius: 8px;
@@ -118,7 +118,7 @@ button:active {
 }
 
 .finish button:hover {
-   background-color: #007bb2;
+   background-color: #2980b9;
 }
 
 @media screen and (max-width: 600px) {
@@ -128,7 +128,7 @@ button:active {
 
    main {
       width: 100%;
-      padding: 30px;
+      padding: 25px;
    }
 
    .title {
@@ -144,6 +144,6 @@ button:active {
    }
 
    .finish span {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
    }
 }
